@@ -2,7 +2,7 @@ package ua.training.controller;
 
 import ua.training.model.Entity.Notebook;
 import ua.training.model.Model;
-import ua.training.model.NicknameWithException;
+import ua.training.model.Entity.NicknameWithException;
 import ua.training.view.TextConstant;
 import ua.training.view.View;
 
@@ -29,16 +29,5 @@ public class UtilityController {
         return res;
     }
 
-    public void tryToSetNote(InputToNoteBook inputToNoteBook, Notebook note) {
 
-        while (true) {
-            try {
-                model.setNote(note);
-                break;
-            } catch (NicknameWithException exception) {
-                view.printMessage(TextConstant.LOGIN_DATA);
-
-            }
-        }
-    }
 }

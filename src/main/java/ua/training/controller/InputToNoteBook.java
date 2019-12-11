@@ -14,13 +14,21 @@ public class InputToNoteBook {
     private Scanner sc;
     private Notebook notebook;
 
-    private String firstName;
+    private String name;
     private String login;
 
-    public InputToNoteBook(View view, Scanner sc, Notebook notebook) {
+    public InputToNoteBook(View view, Scanner sc ) {
         this.view = view;
         this.sc = sc;
-        this.notebook = notebook;
+
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getLogin() {
+        return login;
     }
 
     public void inputNote() {
@@ -29,9 +37,16 @@ public class InputToNoteBook {
         String str = (String.valueOf(View.bundle.getLocale()).equals("ua"))
                 ? REGEX_NAME_UKR : REGEX_NAME_LAT;
 
-        this.firstName =
+        this.name =
                 utilityController.inputStringValueWithScanner
                         (FIRST_NAME, str);
+        this.login =
+                utilityController.inputStringValueWithScanner
+                        (LOGIN_DATA, REGEX_LOGIN);
+    }
+    public void inputLogin(){
+        UtilityController utilityController =
+                new UtilityController(sc, view);
         this.login =
                 utilityController.inputStringValueWithScanner
                         (LOGIN_DATA, REGEX_LOGIN);
